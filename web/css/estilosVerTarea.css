@@ -1,0 +1,88 @@
+body{
+	
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: #101820;
+ 
+}
+.logout{
+    color: #101820;
+    font-size: 40px; 
+}
+.header-flex-container {
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    background: linear-gradient(to bottom, #ff7e00, #ffae00, #ffcf66); 
+    min-width: 100vh;
+    color: #101820;
+}
+
+.header-flex-container h1 {
+    margin: 0; /* Elimina el margen predeterminado del <h1> para un alineamiento adecuado */
+    flex-grow: 1; /* Permite que el <h1> ocupe el espacio disponible */
+    text-align: center; /* Centra el texto del <h1> */
+}
+
+.header-flex-container img {
+    border-radius: 50%;
+    margin-left: 3%;
+}
+
+.header-flex-container a {
+    font-size: 40px;
+    margin-right: 3%;
+}
+
+.list-group-item {
+    background-color: #101820;
+    color: #ffae00;
+    border-color: #ff7e00;
+}
+.texto{
+    background-color: #101820;
+    color: #ffae00;
+    border: 2px solid #ff7e00;
+}
+
+#nuevaTarea::placeholder {
+    color: #ffae00; /* Color azul claro para el texto del placeholder */
+    opacity: 1; /* Asegúrate de que el color se muestre claramente */
+}
+#nuevaTarea:focus{
+    background-color: #101820;
+    color: #ffae00;
+}
+
+#preloaderInsertar{
+    width: 120px;
+    height: 70px;
+    visibility: hidden;
+}
+
+.preloaderBorrar{
+    width: 120px;
+    height: 70px;
+    visibility: hidden;
+}
+
+div i{
+    height: 30px;
+    width: 35px;
+}
+.fa-solid {
+    font-size: 20px;
+}
+.fa-trash {
+    font-size: 20px;
+}
+.fa-regular{
+    font-size: 20px;
+    
+}
+.color{
+    background-color: #4ea93b !important;
+}

@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #101820;
+}
+.header-flex-container {
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    background: linear-gradient(to bottom, #ff7e00, #ffae00, #ffcf66); 
+    min-width: 100vh;
+    color: #101820;
+}
+
+form {
+    background-color: #ffae00;
+    max-width: 500px;
+    margin: 20px auto;
+    margin-top: 7%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff7e00;
+}
+ 
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#fotos {
+    margin-bottom: 20px;
+} 
+
+.atras{
+    color: #101820;
+    font-size: 40px;
+}
+
+.imagenTarea {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 5px;
+    max-width: 200px;
+}
+
+#addImage {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #101820;
+    color: #ffae00;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#addImage:hover {
+    background-color: #000; /* Cambiamos el color de fondo en hover */
+    color: #ffae00; /* Cambiamos el color del texto en hover */
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #101820;
+    color: #ffae00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #000;
+}
+
+h1 {
+    text-align: center;
+    color: #101820;
+}
+
+.header-flex-container img{
+    border-radius: 50%;
+    margin-left: 1%;
+}
