@@ -62,7 +62,9 @@ class ControladorTareas{
         //Obtengo las fotos de la BD
         $fotosDAO = new FotosDAO($conn);
         $fotos = $fotosDAO->getAllByIdTarea($idTarea);
-
+        if(Sesion::getUsuario()->getId()!=$tarea->getIdUsuario()){
+            die('<h1 style="color: red; text-align: center;">Error al editar la tarea</h1>');
+        }
         //Cuando se envíe el formulario actualizo el mensaje en la BD
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
@@ -108,16 +110,28 @@ class ControladorTareas{
 
     function addImageTarea(){
         $idTarea= htmlentities($_GET['idTarea']);
+
+        $connexionDB = new ConnexionDB(MYSQL_USER,MYSQL_PASS,MYSQL_HOST,MYSQL_DB);
+        $conn = $connexionDB->getConnexion();
+        $fotosDAO = new FotosDAO($conn);
+        $foto = new Foto();
+
+        $tareaDAO = new TareasDAO($conn);
+        $tarea = $tareaDAO->getById($idTarea);
+
+        if(Sesion::getUsuario()->getId()!=$tarea->getIdUsuario()){
+            die('Error al insertar la foto');
+        }
+        
+       
         $nombreArchivo = htmlentities($_FILES['foto']['name']);
         $informacionPath = pathinfo($nombreArchivo);
         $extension = $informacionPath['extension'];
         $nombreArchivo = md5(time()+rand()) . '.' . $extension;
         move_uploaded_file($_FILES['foto']['tmp_name'],"web/images/$nombreArchivo");
 
-        $connexionDB = new ConnexionDB(MYSQL_USER,MYSQL_PASS,MYSQL_HOST,MYSQL_DB);
-        $conn = $connexionDB->getConnexion();
-        $fotosDAO = new FotosDAO($conn);
-        $foto = new Foto();
+        
+
         $foto->setIdTarea($idTarea);
         $foto->setNombreArchivo($nombreArchivo);
         $fotosDAO->insert($foto);

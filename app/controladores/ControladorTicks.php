@@ -4,8 +4,15 @@ class ControladorTicks{
         //Creamos la conexión utilizando la clase que hemos creado
         $connexionDB = new ConnexionDB(MYSQL_USER,MYSQL_PASS,MYSQL_HOST,MYSQL_DB);
         $conn = $connexionDB->getConnexion();
-
+        $tareaDAO = new TareasDAO($conn);
+        
         $idTarea = filter_var($_GET['id'],FILTER_SANITIZE_NUMBER_INT);
+        $tarea = $tareaDAO->getById($idTarea);
+        
+        if(Sesion::getUsuario()->getId()!=$tarea->getIdUsuario()){
+            die('Error al realizar la tarea');
+        }
+
         $ticksDAO = new TicksDAO($conn);
         $tick = new Tick();
         $tick->setIdTarea($idTarea);
